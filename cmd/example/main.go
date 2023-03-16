@@ -5,6 +5,8 @@ import (
 	"io"
 	"os"
 	"strings"
+
+	lab2 "github.com/roman-mazur/architecture-lab-2"
 )
 
 var (
@@ -46,13 +48,13 @@ func main() {
     return
   }
 
-//   handler := &lab2.ComputeHandler{
-//     Input:  input,
-//     Output: output,
-//   }
+  handler := &lab2.ComputeHandler{
+    Input:  input,
+    Output: output,
+  }
 
-//   err := handler.Compute()
-//   if err != nil {
-//     println(err)
-//   }
+  err := handler.Compute()
+  if err != nil {
+    println(err)
+  }
 }
