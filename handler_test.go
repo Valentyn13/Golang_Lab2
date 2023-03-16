@@ -23,7 +23,7 @@ func TestComputeHandler_Compute(t *testing.T) {
 		{
 			name:     "valid expression",
 			input:    "+ 3 4",
-			expected: "8",
+			expected: "7",
 		},
 		{
 			name:          "invalid expression",
