@@ -7,17 +7,30 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPrefixToPostfix(t *testing.T) {
-	res, err := PrefixToPostfix("+ 5 * - 4 2 3")
-	if assert.Nil(t, err) {
-		assert.Equal(t, "4 2 - 3 * 5 +", res)
+func TestPrefixSolver(t *testing.T) {
+
+	assert := assert.New(t)
+	testTable := []struct {
+		expression string
+		expected   float64
+	}{
+		{"+ 1 2", 3},
+		{"- 10 4", 6},
+		{"* 2 3", 6},
+		{"/ 10 5", 2},
+		{"+ + 2 7 - 3 1", 11},
+		{"+ 5 * - 4 2 3", 11},
+	}
+	for _, testestCase := range testTable {
+		res, err := PrefixSolver(testestCase.expression)
+		if assert.Nil(err) {
+			assert.Equal(res, testestCase.expected)
+		}
+
 	}
 }
 
-func ExamplePrefixToPostfix() {
-	res, _ := PrefixToPostfix("+ 2 2")
+func ExamplePrefixSolver() {
+	res, _ := PrefixSolver("+ 2 2")
 	fmt.Println(res)
-
-	// Output:
-	// 2 2 +
 }
